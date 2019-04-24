@@ -21,8 +21,8 @@ class FixedPlugin extends Component {
     return (
       <div className="fixed-plugin">
         <div className={this.state.classes}>
-          <div onClick={this.handleClick}>
-            <i className="fa fa-cog fa-2x" />
+          <div className="icon-big text-center" onClick={this.handleClick}>
+            <i className="nc-icon nc-globe text-warning" />
           </div>
           <ul className="dropdown-menu show">
             <li className="header-title">SIDEBAR BACKGROUND</li>
@@ -130,7 +130,7 @@ class FixedPlugin extends Component {
                 round
                 outline
               >
-                <i className="nc-icon nc-paper"></i> Documentation
+                <i className="nc-icon nc-paper" /> Documentation
               </Button>
             </li>
             <li className="header-title">Want more components?</li>

@@ -1,19 +1,34 @@
 {
-  "name": "dark-sky-bs4-paper",
-  "version": "0.1.0",
+  "name": "paper-dashboard-react",
+  "version": "1.0.0",
   "private": true,
+  "homepage": "https://creativetimofficial.github.io/paper-dashboard-react/#/dashboard",
   "dependencies": {
+    "@types/react": "^16.8.14",
     "bootstrap": "^4.3.1",
+    "chart.js": "2.7.2",
+    "history": "4.7.2",
+    "node-sass": "^4.11.0",
+    "perfect-scrollbar": "1.4.0",
     "react": "^16.8.6",
+    "react-chartjs-2": "2.7.4",
     "react-dom": "^16.8.6",
-    "react-scripts": "2.1.8",
+    "react-google-maps": "^9.4.5",
+    "react-map-gl": "^4.1.2",
+    "react-notification-alert": "0.0.8",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "^3.0.0",
     "reactstrap": "^8.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "scss": "node-sass --include-path ./src --include-path ./node_modules src/ -o src/",
+    "lint:check": "eslint . --ext=js,jsx;  exit 0",
+    "lint:fix": "eslint . --ext=js,jsx --fix;  exit 0",
+    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -23,5 +38,13 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "optionalDependencies": {
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "ajv": "6.0.0",
+    "@types/googlemaps": "3.30.13",
+    "@types/markerclustererplus": "2.1.33",
+    "jquery": "3.3.1"
+  }
 }
