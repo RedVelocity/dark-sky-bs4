@@ -14,7 +14,7 @@ import FormInputs from "components/FormInputs/FormInputs.jsx";
 import Button from "components/CustomButton/CustomButton.jsx";
 
 import damirBosnjak from "assets/img/damir-bosnjak.jpg";
-import mike from "assets/img/mike.jpg";
+import mike from "assets/img/IG.png";
 import ayoOgunseinde2 from "assets/img/faces/ayo-ogunseinde-2.jpg";
 import joeGardner2 from "assets/img/faces/joe-gardner-2.jpg";
 import clemOnojeghuo2 from "assets/img/faces/clem-onojeghuo-2.jpg";
@@ -34,12 +34,11 @@ class User extends React.Component {
                 <CardAuthor
                   avatar={mike}
                   avatarAlt="..."
-                  title="Chet Faker"
-                  description="@chetfaker"
+                  title="Shah Nawaz"
+                  description="UI/UX Dev"
                 />
                 <p className="description text-center">
-                  "I like the way you work it <br />
-                  No diggity <br />I wanna bag it up"
+                  "You'll Never Win The League"
                 </p>
               </CardBody>
               <CardFooter>
