@@ -12,6 +12,7 @@ class Stats extends React.Component {
         stats.push(<br />);
       }
     }
+    // console.log("stats", stats);
     return <div className="stats">{stats}</div>;
   }
 }
