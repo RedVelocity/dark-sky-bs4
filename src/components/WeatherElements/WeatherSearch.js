@@ -1,64 +1,68 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 // import { AutoComplete } from "primereact/autocomplete";
-// import { getLocation, getSuggestions } from "API";
+import { getSuggestions } from "API";
 import {
   Card,
-  // CardHeader,
+  // CardSubtitle,
   CardBody,
   CardFooter,
   CardTitle,
   Row,
   Col
 } from "reactstrap";
+import { AsyncTypeahead } from "react-bootstrap-typeahead";
 import ReactAnimatedWeather from "react-animated-weather";
 import Stats from "components/Stats/Stats.jsx";
 
 export default class WeatherSearch extends Component {
   state = {
     //user entered text
-    place: "",
+    selected: [],
     //place suggestions and coords in features
-    suggestions: null,
-    features: null
-    //user selected text
-    // place_name: ""
+    suggestions: [],
+    features: []
   };
 
-  // loadSuggestions = async e => {
-  //   const res = await getSuggestions(
-  //     this.props.proximity.latitude,
-  //     this.props.proximity.longitude,
-  //     this.state.place
-  //   );
-  //   res !== 0
-  //     ? this.setState({
-  //         suggestions: res.features.map(feature => feature.place_name),
-  //         features: res.features
-  //       })
-  //     : // console.log('place state', this.state);
-  //       this.setState({
-  //         features: null,
-  //         suggestions: ["Place Not Found"]
-  //       });
-  // };
+  toggleDropdown = () => {
+    this.setState(prevState => ({
+      dropdownOpen: !prevState.dropdownOpen
+    }));
+  };
 
-  onSelect = e => {
-    if (this.state.features !== null) {
+  loadSuggestions = async searchText => {
+    const res = await getSuggestions(
+      this.props.proximity.latitude,
+      this.props.proximity.longitude,
+      searchText
+    );
+    res !== 0
+      ? this.setState({
+          suggestions: res.features.map(feature => feature.place_name),
+          features: res.features
+        })
+      : // console.log('place state', this.state);
+        this.setState({
+          features: [],
+          suggestions: []
+        });
+  };
+
+  onSelect = selected => {
+    // console.log("onselect", e);
+    if (this.state.features.length > 0 && selected.length > 0) {
       const { toggleLoading, performSearch } = this.props;
       const feature = this.state.features.filter(
-        feature => feature.place_name === e.value
+        feature => feature.place_name === selected[0]
       );
-      if (feature.length !== 0) {
-        toggleLoading();
-        performSearch(
-          feature[0].geometry.coordinates[1],
-          feature[0].geometry.coordinates[0],
-          feature.place_name
-        );
-        // this.setState({ place: "", place_name: e.value });
-      } else this.setState({ place: "" });
-    } else this.setState({ place: "" });
+      toggleLoading();
+      performSearch(
+        feature[0].geometry.coordinates[1],
+        feature[0].geometry.coordinates[0],
+        feature[0].place_name
+      );
+    }
+    this.setState({ selected: [] });
   };
 
   render() {
@@ -69,18 +73,25 @@ export default class WeatherSearch extends Component {
     };
     const { temperature, icon, summary } = this.props.currently;
     const { place_name } = this.props;
-    // const { isLoaded } = this.props.weatherState;
-    // if (isLoaded)
-    //   ({
-    //     temperature,
-    //     icon,
-    //     summary
-    //   } = this.props);
 
     return (
       <div className="content">
         <Row>
           <Col xs={12} sm={6} md={6} lg={4}>
+            <Card>
+              <CardBody>
+                <CardTitle className="lead">Search Weather</CardTitle>
+                <AsyncTypeahead
+                  isLoading={this.props.isLoading}
+                  id="typeahead"
+                  onChange={selected => this.onSelect(selected)}
+                  onSearch={query => this.loadSuggestions(query)}
+                  options={this.state.suggestions}
+                  placeholder="Enter Place Name"
+                  selected={[]}
+                />
+              </CardBody>
+            </Card>
             <Card className="card-stats ">
               <CardBody>
                 <Row className="align-items-center justify-items-center">
@@ -121,16 +132,6 @@ export default class WeatherSearch extends Component {
             </Card>
           </Col>
         </Row>
-        {/* <AutoComplete
-          inputStyle={{ marginTop: "2px", width: "300px" }}
-          placeholder="Enter Place Name"
-          value={this.state.place}
-          onChange={e => this.setState({ place: e.target.value })}
-          suggestions={this.state.suggestions}
-          completeMethod={this.loadSuggestions}
-          onSelect={this.onSelect}
-        />
-        <label style={{ margin: "10px" }}>{this.state.place_name}</label> */}
       </div>
     );
   }

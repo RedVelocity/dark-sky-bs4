@@ -6,8 +6,10 @@ import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import "assets/scss/paper-dashboard.scss";
 import "assets/demo/demo.css";
-// import "App.css";
+import "App.css";
 import App from "App";
+import "react-bootstrap-typeahead/css/Typeahead.css";
+import "react-bootstrap-typeahead/css/Typeahead-bs4.css";
 
 // import indexRoutes from "routes/index.jsx";
 

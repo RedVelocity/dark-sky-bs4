@@ -1,5 +1,5 @@
 {
-  "name": "paper-dashboard-react",
+  "name": "weather-paper-ui",
   "version": "1.0.0",
   "private": true,
   "homepage": "https://creativetimofficial.github.io/paper-dashboard-react/#/dashboard",
@@ -12,6 +12,7 @@
     "node-sass": "^4.11.0",
     "react": "^16.8.6",
     "react-animated-weather": "^2.0.0",
+    "react-bootstrap-typeahead": "^3.4.3",
     "react-chartjs-2": "2.7.4",
     "react-detect-offline": "^2.3.0",
     "react-dom": "^16.8.6",

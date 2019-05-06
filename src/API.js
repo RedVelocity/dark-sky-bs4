@@ -42,7 +42,7 @@ export function getSuggestions(latitude, longitude, place) {
   const api = encodeURI(
     `https://api.mapbox.com/geocoding/v5/mapbox.places/${place}.json?access_token=${
       process.env.REACT_APP_MAPBOX_KEY
-    }&types=place,locality${proximity}&language=en`
+    }&types=place,locality${proximity}&language=en&limit=10`
   );
   return axios
     .get(api)

@@ -81,11 +81,12 @@ class App extends Component {
         {this.state.isLoaded ? (
           <WeatherSearch
             // weatherState={this.state}
-            // performSearch={this.performSearch}
-            // toggleLoading={this.toggleLoading}
+            performSearch={this.performSearch}
+            toggleLoading={this.toggleLoading}
             // setViewport={this.setViewport}
             currently={this.state.weather.currently}
             isLoaded={this.state.isLoaded}
+            isLoading={this.state.isLoading}
             place_name={this.state.place_name}
             proximity={this.state.proximity}
           />
