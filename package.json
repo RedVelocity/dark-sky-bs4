@@ -2,7 +2,6 @@
   "name": "weather-paper-ui",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://creativetimofficial.github.io/paper-dashboard-react/#/dashboard",
   "dependencies": {
     "@types/react": "^16.8.14",
     "axios": "^0.18.0",
