@@ -4,11 +4,12 @@ import WeatherChart from "./WeatherChart";
 import WeatherDetail from "./WeatherDetail";
 import { Row, Col } from "reactstrap";
 import WeatherSearch from "./WeatherSearch";
+import MapCard from "./MapCard";
 
 function WeatherCard({ appState, performSearch, toggleLoading }) {
   return (
     <div className="container pt-5" style={{ minHeight: "100vh" }}>
-      <Row>
+      <Row className="align-items-center">
         <Col xs={12} md={5} lg={4}>
           <WeatherSearch
             isLoading={appState.isLoading}
@@ -26,6 +27,11 @@ function WeatherCard({ appState, performSearch, toggleLoading }) {
         {appState.isLoaded && (
           <Col xs={12} md={7} lg={8}>
             <WeatherChart daily={appState.weather.daily} />
+          </Col>
+        )}
+        {appState.isLoaded && (
+          <Col xs={12}>
+            <MapCard viewport={appState.viewport} />
           </Col>
         )}
       </Row>

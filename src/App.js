@@ -7,8 +7,8 @@ class App extends Component {
     weather: null,
     //init map coords
     viewport: {
-      latitude: 12.9791198,
-      longitude: 77.5912997,
+      latitude: null,
+      longitude: null,
       zoom: 11
     },
     //store gps location if available

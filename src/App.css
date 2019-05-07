@@ -11,3 +11,23 @@ body {
   background-image: linear-gradient(to bottom, #4b186a, #a74970);
   /* background-color: #ddd; */
 }
+
+/* .row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+} */
+
+/* .row-flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+} */
+/* .row > [class*="col-"] {
+  display: flex;
+  flex-direction: column;
+} */
