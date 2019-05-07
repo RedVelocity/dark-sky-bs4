@@ -85,6 +85,7 @@ class App extends Component {
             toggleLoading={this.toggleLoading}
             // setViewport={this.setViewport}
             currently={this.state.weather.currently}
+            daily={this.state.weather.daily}
             isLoaded={this.state.isLoaded}
             isLoading={this.state.isLoading}
             place_name={this.state.place_name}
