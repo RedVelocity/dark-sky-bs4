@@ -52,7 +52,7 @@ function WeatherChart({ daily }) {
   };
 
   const chartOptions = {
-    maintainAspectRatio: false,
+    // maintainAspectRatio: false,
     legend: {
       display: true,
       position: "bottom"
