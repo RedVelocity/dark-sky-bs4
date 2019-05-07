@@ -145,7 +145,7 @@ function WeatherChart({ daily }) {
                     data={chartData}
                     options={chartOptions}
                     width={400}
-                    height={200}
+                    height={180}
                   />
                 </CardBody>
                 {/* <CardFooter>
