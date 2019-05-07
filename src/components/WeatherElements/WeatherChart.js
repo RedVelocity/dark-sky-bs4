@@ -2,7 +2,7 @@ import React from "react";
 import moment from "moment";
 import { Line } from "react-chartjs-2";
 // import Media from 'react-media';
-// import MediaQuery from "react-responsive";
+import MediaQuery from "react-responsive";
 import { Card, CardHeader, CardBody, CardTitle, Col } from "reactstrap";
 
 function WeatherChart({ daily }) {
@@ -52,6 +52,7 @@ function WeatherChart({ daily }) {
   };
 
   const chartOptions = {
+    maintainAspectRatio: false,
     legend: {
       display: true,
       position: "bottom"
@@ -98,21 +99,25 @@ function WeatherChart({ daily }) {
     }
   };
   return (
-    <Col xs={12} sm={12} md={8} lg={8}>
-      <Card>
-        <CardHeader>
-          <CardTitle className="lead">Weekly Weather</CardTitle>
-          {/* <p className="card-category">High Average Low</p> */}
-        </CardHeader>
-        <CardBody>
-          <Line
-            data={chartData}
-            options={chartOptions}
-            width={400}
-            height={100}
-          />
-        </CardBody>
-        {/* <CardFooter>
+    <MediaQuery maxWidth={500}>
+      {matches => {
+        if (matches) {
+          return (
+            <Col xs={12} sm={12} md={8} lg={8}>
+              <Card>
+                <CardHeader>
+                  <CardTitle className="lead">Weekly Weather</CardTitle>
+                  {/* <p className="card-category">High Average Low</p> */}
+                </CardHeader>
+                <CardBody>
+                  <Line
+                    data={chartData}
+                    options={chartOptions}
+                    width={200}
+                    height={180}
+                  />
+                </CardBody>
+                {/* <CardFooter>
               <hr />
               <Stats>
                 {[
@@ -123,8 +128,43 @@ function WeatherChart({ daily }) {
                 ]}
               </Stats>
             </CardFooter> */}
-      </Card>
-    </Col>
+              </Card>
+            </Col>
+          );
+        } else {
+          return (
+            <Col xs={12} sm={12} md={8} lg={8}>
+              <Card>
+                <CardHeader>
+                  <CardTitle className="lead">Weekly Weather</CardTitle>
+                  {/* <p className="card-category">High Average Low</p> */}
+                </CardHeader>
+                <CardBody>
+                  <Line
+                    // maintainAspectRatio={false}
+                    data={chartData}
+                    options={chartOptions}
+                    width={400}
+                    height={100}
+                  />
+                </CardBody>
+                {/* <CardFooter>
+              <hr />
+              <Stats>
+                {[
+                  {
+                    i: "fas fa-history",
+                    t: " Updated 3 minutes ago"
+                  }
+                ]}
+              </Stats>
+            </CardFooter> */}
+              </Card>
+            </Col>
+          );
+        }
+      }}
+    </MediaQuery>
   );
 }
 
