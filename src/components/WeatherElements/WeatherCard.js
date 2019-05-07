@@ -1,35 +1,43 @@
 import React from "react";
-import PropTypes from "prop-types";
-// import { Spring, config  } from 'react-spring/renderprops'
-// import { Card } from 'primereact/card';
-import WeatherSearch from "./WeatherSearch";
+// import PropTypes from "prop-types";
+import WeatherChart from "./WeatherChart";
 import WeatherDetail from "./WeatherDetail";
-import { Message } from "primereact/message";
-import { Offline } from "react-detect-offline";
-// import {Panel} from 'primereact/panel';
+import { Row, Col } from "reactstrap";
+import WeatherSearch from "./WeatherSearch";
 
-function WeatherCard({ weatherState, performSearch, toggleLoading }) {
+function WeatherCard({
+  isLoading,
+  performSearch,
+  toggleLoading,
+  proximity,
+  currently,
+  place_name,
+  daily,
+  isLoaded
+}) {
   return (
-    <div className="weather-card">
-      <br />
-      <Offline>
-        <Message severity="warn" text="Currently Offline" />
-      </Offline>
-      <WeatherSearch
-        performSearch={performSearch}
-        toggleLoading={toggleLoading}
-        isLoaded={weatherState.isLoaded}
-      />
-      {weatherState.isLoaded && <WeatherDetail weatherState={weatherState} />}
+    <div className="container">
+      <Row>
+        <Col xs={12} sm={12} md={4} lg={4}>
+          <WeatherSearch
+            isLoading={isLoading}
+            performSearch={performSearch}
+            toggleLoading={toggleLoading}
+            proximity={proximity}
+          />
+          <WeatherDetail currently={currently} place_name={place_name} />
+        </Col>
+        <WeatherChart daily={daily} isLoaded={isLoaded} />
+      </Row>
     </div>
   );
 }
 
 // PropTypes
-WeatherCard.propTypes = {
-  weatherState: PropTypes.object.isRequired,
-  performSearch: PropTypes.func.isRequired,
-  toggleLoading: PropTypes.func.isRequired
-};
+// WeatherCard.propTypes = {
+//   weatherState: PropTypes.object.isRequired,
+//   performSearch: PropTypes.func.isRequired,
+//   toggleLoading: PropTypes.func.isRequired
+// };
 
 export default WeatherCard;

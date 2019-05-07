@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import WeatherSearch from "components/WeatherElements/WeatherSearch";
 import { getWeather, getLocation } from "API";
 import { Row, Col, Card, CardBody } from "reactstrap";
+import WeatherCard from "components/WeatherElements/WeatherCard";
 
 class App extends Component {
   state = {
@@ -79,7 +79,7 @@ class App extends Component {
     return (
       <div>
         {this.state.isLoaded ? (
-          <WeatherSearch
+          <WeatherCard
             // weatherState={this.state}
             performSearch={this.performSearch}
             toggleLoading={this.toggleLoading}
@@ -92,9 +92,9 @@ class App extends Component {
             proximity={this.state.proximity}
           />
         ) : (
-          <div className="content">
+          <div className="container">
             <Row className="text-center">
-              <Col xs={12} sm={6} md={6} lg={4}>
+              <Col xs={12}>
                 <Card className="card-stats ">
                   <CardBody>
                     <h3>Loading...</h3>
