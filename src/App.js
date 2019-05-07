@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { getWeather, getLocation } from "API";
-import { Row, Col, Card, CardBody } from "reactstrap";
 import WeatherCard from "components/WeatherElements/WeatherCard";
 
 class App extends Component {
@@ -77,34 +76,11 @@ class App extends Component {
   render() {
     console.log("App State", this.state);
     return (
-      <div>
-        {this.state.isLoaded ? (
-          <WeatherCard
-            // weatherState={this.state}
-            performSearch={this.performSearch}
-            toggleLoading={this.toggleLoading}
-            // setViewport={this.setViewport}
-            currently={this.state.weather.currently}
-            daily={this.state.weather.daily}
-            isLoaded={this.state.isLoaded}
-            isLoading={this.state.isLoading}
-            place_name={this.state.place_name}
-            proximity={this.state.proximity}
-          />
-        ) : (
-          <div className="container">
-            <Row className="text-center">
-              <Col xs={12}>
-                <Card className="card-stats ">
-                  <CardBody>
-                    <h3>Loading...</h3>
-                  </CardBody>
-                </Card>
-              </Col>
-            </Row>
-          </div>
-        )}
-      </div>
+      <WeatherCard
+        appState={this.state}
+        toggleLoading={this.toggleLoading}
+        performSearch={this.performSearch}
+      />
     );
   }
 }

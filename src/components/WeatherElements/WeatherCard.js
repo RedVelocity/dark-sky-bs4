@@ -5,29 +5,25 @@ import WeatherDetail from "./WeatherDetail";
 import { Row, Col } from "reactstrap";
 import WeatherSearch from "./WeatherSearch";
 
-function WeatherCard({
-  isLoading,
-  performSearch,
-  toggleLoading,
-  proximity,
-  currently,
-  place_name,
-  daily,
-  isLoaded
-}) {
+function WeatherCard({ appState, performSearch, toggleLoading }) {
   return (
-    <div className="container">
+    <div className="container" style={{ minHeight: "100vh" }}>
       <Row>
         <Col xs={12} sm={12} md={4} lg={4}>
           <WeatherSearch
-            isLoading={isLoading}
+            isLoading={appState.isLoading}
             performSearch={performSearch}
             toggleLoading={toggleLoading}
-            proximity={proximity}
+            proximity={appState.proximity}
           />
-          <WeatherDetail currently={currently} place_name={place_name} />
+          {appState.isLoaded && (
+            <WeatherDetail
+              currently={appState.weather.currently}
+              place_name={appState.place_name}
+            />
+          )}
         </Col>
-        <WeatherChart daily={daily} isLoaded={isLoaded} />
+        {appState.isLoaded && <WeatherChart daily={appState.weather.daily} />}
       </Row>
     </div>
   );

@@ -1,5 +1,5 @@
 body {
-  /* background-image: -webkit-gradient(
+  background-image: -webkit-gradient(
     linear,
     left top,
     left bottom,
@@ -8,6 +8,6 @@ body {
   );
   background-image: -webkit-linear-gradient(top, #868686, #e7e7e7);
   background-image: -moz-linear-gradient(top, #868686, #e7e7e7);
-  background-image: linear-gradient(to bottom, #868686, #e7e7e7); */
-  background-color: #ddd;
+  background-image: linear-gradient(to bottom, #24707c, #7fd3e0);
+  /* background-color: #ddd; */
 }
