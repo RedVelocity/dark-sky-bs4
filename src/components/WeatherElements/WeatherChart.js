@@ -42,8 +42,8 @@ function WeatherChart({ daily }) {
         data: dailyWeather.map(daily =>
           Math.round(daily.apparentTemperatureHigh)
         ),
-        borderColor: "#3A015C",
-        backgroundColor: "#3A015C",
+        borderColor: "#4B186A",
+        backgroundColor: "#4B186A",
         pointRadius: 0,
         pointHoverRadius: 0,
         borderWidth: 3
