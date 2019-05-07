@@ -7,7 +7,7 @@ import WeatherSearch from "./WeatherSearch";
 
 function WeatherCard({ appState, performSearch, toggleLoading }) {
   return (
-    <div className="container pt-5" style={{ minHeight: "100vh" }}>
+    <div className="container pt-5 pb-3" style={{ minHeight: "100vh" }}>
       <Row>
         <Col xs={12} sm={12} md={4} lg={4}>
           <WeatherSearch
