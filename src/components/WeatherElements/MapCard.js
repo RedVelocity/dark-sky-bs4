@@ -45,7 +45,7 @@ export default function MapCard({ viewport }) {
                   <hr />
                   <StaticMap
                     width="100%"
-                    height="50vh"
+                    height="40vh"
                     {...viewport}
                     mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_KEY}
                     mapStyle="mapbox://styles/redvelocity/cjumbtame019l1ft8zigwi1cd"
