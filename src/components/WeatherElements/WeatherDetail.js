@@ -16,7 +16,7 @@ function WeatherDetail({ currently, place_name }) {
     <Card className="card-stats ">
       <CardBody>
         <Row className="align-items-center justify-items-center">
-          <Col xs={12} md={4}>
+          <Col xs={12} md={6} lg={4}>
             <div className="text-center">
               <ReactAnimatedWeather
                 icon={icon.replace(/-/g, "_").toUpperCase()}
@@ -26,12 +26,12 @@ function WeatherDetail({ currently, place_name }) {
               />
             </div>
           </Col>
-          <Col xs={12} md={4}>
+          <Col xs={12} md={6} lg={4}>
             <div>
               <p className="lead text-muted text-center">{summary}</p>
             </div>
           </Col>
-          <Col xs={12} md={4}>
+          <Col xs={12} lg={4}>
             <div className="numbers text-center">
               <p className="card-category">Currently</p>
               <CardTitle tag="p">{Math.round(temperature)}°C</CardTitle>

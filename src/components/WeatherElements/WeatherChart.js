@@ -3,11 +3,12 @@ import moment from "moment";
 import { Line } from "react-chartjs-2";
 // import Media from 'react-media';
 import MediaQuery from "react-responsive";
-import { Card, CardHeader, CardBody, CardTitle, Col } from "reactstrap";
+import { Card, CardHeader, CardBody, CardTitle } from "reactstrap";
 
 function WeatherChart({ daily }) {
   //Chart Data
   const dailyWeather = daily.data;
+  const summary = daily.summary;
   const chartData = {
     labels: dailyWeather.map(daily =>
       moment.unix(daily.time).format("ddd DD/MM")
@@ -103,21 +104,20 @@ function WeatherChart({ daily }) {
       {matches => {
         if (matches) {
           return (
-            <Col xs={12} sm={12} md={8} lg={8}>
-              <Card>
-                <CardHeader>
-                  <CardTitle className="lead">Weekly Weather</CardTitle>
-                  {/* <p className="card-category">High Average Low</p> */}
-                </CardHeader>
-                <CardBody>
-                  <Line
-                    data={chartData}
-                    options={chartOptions}
-                    width={200}
-                    height={180}
-                  />
-                </CardBody>
-                {/* <CardFooter>
+            <Card>
+              <CardHeader>
+                <CardTitle className="lead">Through The Week</CardTitle>
+                <p className="card-category">{summary}</p>
+              </CardHeader>
+              <CardBody>
+                <Line
+                  data={chartData}
+                  options={chartOptions}
+                  width={200}
+                  height={180}
+                />
+              </CardBody>
+              {/* <CardFooter>
               <hr />
               <Stats>
                 {[
@@ -128,27 +128,25 @@ function WeatherChart({ daily }) {
                 ]}
               </Stats>
             </CardFooter> */}
-              </Card>
-            </Col>
+            </Card>
           );
         } else {
           return (
-            <Col xs={12} sm={12} md={8} lg={8}>
-              <Card>
-                <CardHeader>
-                  <CardTitle className="lead">Weekly Weather</CardTitle>
-                  {/* <p className="card-category">High Average Low</p> */}
-                </CardHeader>
-                <CardBody>
-                  <Line
-                    // maintainAspectRatio={false}
-                    data={chartData}
-                    options={chartOptions}
-                    width={400}
-                    height={180}
-                  />
-                </CardBody>
-                {/* <CardFooter>
+            <Card>
+              <CardHeader>
+                <CardTitle className="lead">Through The Week</CardTitle>
+                <p className="card-category">{summary}</p>
+              </CardHeader>
+              <CardBody>
+                <Line
+                  // maintainAspectRatio={false}
+                  data={chartData}
+                  options={chartOptions}
+                  width={400}
+                  height={180}
+                />
+              </CardBody>
+              {/* <CardFooter>
               <hr />
               <Stats>
                 {[
@@ -159,8 +157,7 @@ function WeatherChart({ daily }) {
                 ]}
               </Stats>
             </CardFooter> */}
-              </Card>
-            </Col>
+            </Card>
           );
         }
       }}
