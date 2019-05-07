@@ -3,11 +3,11 @@ body {
     linear,
     left top,
     left bottom,
-    from(#031d44),
-    to(#04395e)
+    from(#4b186a),
+    to(#a74970)
   );
-  background-image: -webkit-linear-gradient(top, #031d44, #04395e);
-  background-image: -moz-linear-gradient(top, #031d44, #04395e);
-  background-image: linear-gradient(to bottom, #031d44, #04395e);
+  background-image: -webkit-linear-gradient(top, #4b186a, #a74970);
+  background-image: -moz-linear-gradient(top, #4b186a, #a74970);
+  background-image: linear-gradient(to bottom, #4b186a, #a74970);
   /* background-color: #ddd; */
 }
