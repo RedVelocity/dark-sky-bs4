@@ -18,8 +18,8 @@ function WeatherChart({ daily }) {
         data: dailyWeather.map(daily =>
           Math.round(daily.apparentTemperatureLow)
         ),
-        borderColor: "#f17e5d",
-        backgroundColor: "#f17e5d",
+        borderColor: "#7F96FF",
+        backgroundColor: "#7F96FF",
         pointRadius: 0,
         pointHoverRadius: 0,
         borderWidth: 3
@@ -31,8 +31,8 @@ function WeatherChart({ daily }) {
             (daily.apparentTemperatureHigh + daily.apparentTemperatureLow) / 2
           )
         ),
-        borderColor: "#fcc468",
-        backgroundColor: "#fcc468",
+        borderColor: "#E56399",
+        backgroundColor: "#E56399",
         pointRadius: 0,
         pointHoverRadius: 0,
         borderWidth: 3
@@ -42,8 +42,8 @@ function WeatherChart({ daily }) {
         data: dailyWeather.map(daily =>
           Math.round(daily.apparentTemperatureHigh)
         ),
-        borderColor: "#6bd098",
-        backgroundColor: "#6bd098",
+        borderColor: "#3A015C",
+        backgroundColor: "#3A015C",
         pointRadius: 0,
         pointHoverRadius: 0,
         borderWidth: 3

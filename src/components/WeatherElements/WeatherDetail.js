@@ -6,7 +6,7 @@ import { Card, CardBody, CardFooter, CardTitle, Row, Col } from "reactstrap";
 
 function WeatherDetail({ currently, place_name }) {
   const defaults = {
-    color: "#1385ae",
+    color: "#3A015C",
     size: 50,
     animate: true
   };
