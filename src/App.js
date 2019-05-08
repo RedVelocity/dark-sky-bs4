@@ -1,16 +1,12 @@
 import React, { Component } from "react";
 import { getWeather, getLocation } from "API";
 import WeatherCard from "components/WeatherElements/WeatherCard";
+import { FlyToInterpolator } from "react-map-gl";
 
 class App extends Component {
   state = {
     weather: null,
-    //init map coords
-    viewport: {
-      latitude: null,
-      longitude: null,
-      zoom: 11
-    },
+    viewport: null,
     //store gps location if available
     proximity: {
       latitude: null,
@@ -30,6 +26,19 @@ class App extends Component {
     // console.log('set viewport in app js', this.state);
   };
 
+  // gotoViewport = (latitude, longitude) => {
+  //   this.setState({
+  //     viewport: {
+  //       ...this.state.viewport,
+  //       latitude: latitude,
+  //       longitude: longitude,
+  //       zoom: 11,
+  //       transitionInterpolator: new FlyToInterpolator(),
+  //       transitionDuration: 3000
+  //     }
+  //   });
+  // };
+
   performSearch = async (lat, lon, place) => {
     const res = await getWeather(lat, lon);
     // console.log("res data appjs", res);
@@ -39,7 +48,10 @@ class App extends Component {
         viewport: {
           ...this.state.viewport,
           latitude: res.latitude,
-          longitude: res.longitude
+          longitude: res.longitude,
+          zoom: 11,
+          transitionInterpolator: new FlyToInterpolator(),
+          transitionDuration: 5000
         },
         place_name: place,
         isLoaded: true,
@@ -80,6 +92,7 @@ class App extends Component {
         appState={this.state}
         toggleLoading={this.toggleLoading}
         performSearch={this.performSearch}
+        setViewport={this.setViewport}
       />
     );
   }

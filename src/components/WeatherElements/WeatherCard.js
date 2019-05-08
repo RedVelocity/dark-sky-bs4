@@ -6,7 +6,7 @@ import { Row, Col } from "reactstrap";
 import WeatherSearch from "./WeatherSearch";
 import MapCard from "./MapCard";
 
-function WeatherCard({ appState, performSearch, toggleLoading }) {
+function WeatherCard({ appState, performSearch, toggleLoading, setViewport }) {
   return (
     <div className="container pt-5" style={{ minHeight: "100vh" }}>
       <Row className="align-items-center">
@@ -31,7 +31,16 @@ function WeatherCard({ appState, performSearch, toggleLoading }) {
         )}
         {appState.isLoaded && (
           <Col xs={12}>
-            <MapCard viewport={appState.viewport} />
+            <MapCard
+              viewport={appState.viewport}
+              setViewport={setViewport}
+              markerCoords={{
+                coords: {
+                  latitude: appState.weather.latitude,
+                  longitude: appState.weather.longitude
+                }
+              }}
+            />
           </Col>
         )}
       </Row>
