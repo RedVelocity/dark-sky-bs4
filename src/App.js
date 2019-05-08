@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { getWeather, getLocation } from "API";
 import WeatherCard from "components/WeatherElements/WeatherCard";
-import { FlyToInterpolator } from "react-map-gl";
+// import { FlyToInterpolator } from "react-map-gl";
 
 class App extends Component {
   state = {
@@ -49,9 +49,9 @@ class App extends Component {
           ...this.state.viewport,
           latitude: res.latitude,
           longitude: res.longitude,
-          zoom: 11,
-          transitionInterpolator: new FlyToInterpolator(),
-          transitionDuration: 5000
+          zoom: 11
+          // transitionInterpolator: new FlyToInterpolator(),
+          // transitionDuration: 5000
         },
         place_name: place,
         isLoaded: true,
