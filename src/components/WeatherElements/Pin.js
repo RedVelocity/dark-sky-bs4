@@ -26,8 +26,8 @@ export default class Pin extends PureComponent {
       >
         <defs>
           <filter id="shadow" x="0" y="0" width="200%" height="200%">
-            <feOffset result="offOut" in="SourceAlpha" dx="0" dy="30" />
-            <feGaussianBlur result="blurOut" in="offOut" stdDeviation="40" />
+            <feOffset result="offOut" in="SourceAlpha" dx="20" dy="30" />
+            <feGaussianBlur result="blurOut" in="offOut" stdDeviation="20" />
             <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
           </filter>
         </defs>
