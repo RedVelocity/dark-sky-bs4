@@ -7,7 +7,7 @@ import {
 } from "react-map-gl";
 // import PropTypes from "prop-types";
 import MediaQuery from "react-responsive";
-// import marker from "assets/img/mapbox-icon.png";
+// import marker from "assets/img/map-marker.svg";
 import { Card, CardBody } from "reactstrap";
 import Pin from "./Pin";
 
@@ -38,7 +38,7 @@ export default function MapCard({ viewport, setViewport, markerCoords }) {
                       latitude={markerCoords.coords.latitude}
                       longitude={markerCoords.coords.longitude}
                     >
-                      <Pin size={25} />
+                      <Pin size={30} />
                     </Marker>
                   </InteractiveMap>
                 </CardBody>
@@ -88,7 +88,7 @@ export default function MapCard({ viewport, setViewport, markerCoords }) {
                       // offsetLeft={-20}
                       // offsetTop={-10}
                     >
-                      <Pin size={25} />
+                      <Pin size={30} />
                     </Marker>
                   </InteractiveMap>
                 </CardBody>
