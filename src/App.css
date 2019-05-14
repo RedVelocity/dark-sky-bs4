@@ -12,6 +12,15 @@ body {
   /* background-color: #ddd; */
 }
 
+.marker {
+  background-image: url("/assets/img/mapbox-icon.png");
+  background-size: cover;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  /* cursor: pointer; */
+}
+
 /* .row-eq-height {
   display: -webkit-box;
   display: -webkit-flex;

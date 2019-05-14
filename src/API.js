@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export function getWeather(latitude, longitude) {
-  const exclude = "[minutely,hourly,flags]";
+  const exclude = "[minutely,flags]";
   const api = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${
     process.env.REACT_APP_DARKSKY_KEY
   }/${latitude},${longitude}?units=ca&exclude=${exclude}`;

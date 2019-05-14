@@ -2,7 +2,7 @@ import React from "react";
 // import PropTypes from "prop-types";
 import WeatherChart from "./WeatherChart";
 import WeatherDetail from "./WeatherDetail";
-import { Row, Col, Card, CardBody } from "reactstrap";
+import { Row, Col } from "reactstrap";
 import WeatherSearch from "./WeatherSearch";
 import MapCard from "./MapCard";
 import { List } from "react-content-loader";
@@ -21,29 +21,21 @@ function WeatherCard({ appState, performSearch, toggleLoading, setViewport }) {
             toggleLoading={toggleLoading}
             proximity={appState.proximity}
           />
-          {appState.isLoaded && !appState.isLoading ? (
+          {appState.isLoaded ? (
             <WeatherDetail
               currently={appState.weather.currently}
               place_name={appState.place_name}
             />
           ) : (
-            <Card>
-              <CardBody>
-                <MyListLoader />
-              </CardBody>
-            </Card>
+            <MyListLoader />
           )}
         </Col>
-        {appState.isLoaded && !appState.isLoading ? (
+        {appState.isLoaded && (
           <Col xs={12} md={7} lg={8}>
             <WeatherChart daily={appState.weather.daily} />
           </Col>
-        ) : (
-          <Col xs={12} md={7} lg={8}>
-            <MyListLoader />
-          </Col>
         )}
-        {appState.isLoaded && !appState.isLoading ? (
+        {appState.isLoaded && (
           <Col xs={12}>
             <MapCard
               viewport={appState.viewport}
@@ -55,10 +47,6 @@ function WeatherCard({ appState, performSearch, toggleLoading, setViewport }) {
                 }
               }}
             />
-          </Col>
-        ) : (
-          <Col xs={12}>
-            <MyListLoader />
           </Col>
         )}
       </Row>
