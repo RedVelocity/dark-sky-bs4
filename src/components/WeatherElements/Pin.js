@@ -24,10 +24,18 @@ export default class Pin extends PureComponent {
           transform: `translate(${-size / 2}px,${-size}px)`
         }}
       >
+        <defs>
+          <filter id="shadow" x="0" y="0" width="200%" height="200%">
+            <feOffset result="offOut" in="SourceAlpha" dx="0" dy="30" />
+            <feGaussianBlur result="blurOut" in="offOut" stdDeviation="40" />
+            <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+          </filter>
+        </defs>
         <path
           d="M256,0C167.641,0,96,71.625,96,160c0,24.75,5.625,48.219,15.672,69.125C112.234,230.313,256,512,256,512l142.594-279.375
             C409.719,210.844,416,186.156,416,160C416,71.625,344.375,0,256,0z M256,256c-53.016,0-96-43-96-96s42.984-96,96-96
             c53,0,96,43,96,96S309,256,256,256z"
+          filter="url(#shadow)"
         />
       </svg>
     );

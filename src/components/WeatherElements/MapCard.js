@@ -25,7 +25,7 @@ export default function MapCard({ viewport, setViewport, markerCoords }) {
                     width="100%"
                     height="40vh"
                     onViewportChange={viewport => setViewport(viewport)}
-                    mapStyle="mapbox://styles/redvelocity/cjumbtame019l1ft8zigwi1cd"
+                    mapStyle="mapbox://styles/redvelocity/cjvnm73hu01mw1cp5vwb9pqzc"
                     mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_KEY}
                   >
                     <div style={{ position: "absolute", right: 0 }}>
@@ -74,7 +74,8 @@ export default function MapCard({ viewport, setViewport, markerCoords }) {
                     width="100%"
                     height="75vh"
                     onViewportChange={view_port => setViewport(view_port)}
-                    mapStyle="mapbox://styles/redvelocity/cjumbtame019l1ft8zigwi1cd"
+                    //mapbox://styles/redvelocity/cjumbtame019l1ft8zigwi1cd
+                    mapStyle="mapbox://styles/redvelocity/cjvnm73hu01mw1cp5vwb9pqzc"
                     mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_KEY}
                   >
                     <div style={{ position: "absolute", right: 0 }}>
@@ -88,7 +89,7 @@ export default function MapCard({ viewport, setViewport, markerCoords }) {
                       // offsetLeft={-20}
                       // offsetTop={-10}
                     >
-                      <Pin size={30} />
+                      <Pin className="shadow" size={30} />
                     </Marker>
                   </InteractiveMap>
                 </CardBody>
