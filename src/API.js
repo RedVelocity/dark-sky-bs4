@@ -2,7 +2,7 @@ import axios from "axios";
 
 export function getWeather(latitude, longitude) {
   const exclude = "[minutely,flags]";
-  const api = `https://thingproxy.freeboard.io/fetch/https://api.darksky.net/forecast/${
+  const api = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${
     process.env.REACT_APP_DARKSKY_KEY
   }/${latitude},${longitude}?units=ca&exclude=${exclude}`;
   return axios
