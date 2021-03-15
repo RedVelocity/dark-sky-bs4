@@ -1,4 +1,4 @@
-const axios = require('axios');
+const fetch = require('node-fetch');
 const querystring = require('querystring');
 
 exports.handler = async (event, context) => {
@@ -12,8 +12,7 @@ exports.handler = async (event, context) => {
   const { latitude, longitude } = params;
   const API_ENDPOINT = `https://api.darksky.net/forecast/${process.env.REACT_APP_DARKSKY_KEY}/${latitude},${longitude}?units=ca&exclude=[minutely,flags]`;
   return (
-    axios
-      .get(API_ENDPOINT, { headers: { Accept: 'application/json' } })
+    fetch(API_ENDPOINT, { headers: { Accept: 'application/json' } })
       // .then((response) => response.json())
       .then((data) => {
         console.log(data);
