@@ -4,7 +4,7 @@ export function getWeather(latitude, longitude) {
   // const exclude = "[minutely,flags]";
   const api = ``;
   return axios
-    .get(api, { latitude, longitude })
+    .post(api, { latitude, longitude })
     .then((res) => {
       console.log('weather data', res.data);
       return res.status === 200 ? res.data : 0;
