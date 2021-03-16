@@ -16,9 +16,7 @@ export function getWeather(latitude, longitude) {
 }
 
 export function getLocation(latitude, longitude) {
-  let api = encodeURI(
-    `https://api.mapbox.com/geocoding/v5/mapbox.places/${longitude},${latitude}.json?access_token=${process.env.REACT_APP_MAPBOX_KEY}&types=place&language=en&limit=1`
-  );
+  const api = `.netlify/functions/getLocation?latitude=${latitude}&longitude=${longitude}`;
   return axios
     .get(api)
     .then((res) => {
@@ -31,13 +29,7 @@ export function getLocation(latitude, longitude) {
 }
 
 export function getSuggestions(latitude, longitude, place) {
-  let proximity;
-  latitude !== null
-    ? (proximity = '&proximity=' + longitude + ',' + latitude)
-    : (proximity = '');
-  const api = encodeURI(
-    `https://api.mapbox.com/geocoding/v5/mapbox.places/${place}.json?access_token=${process.env.REACT_APP_MAPBOX_KEY}&types=place,locality${proximity}&language=en&limit=10`
-  );
+  const api = `.netlify/functions/getSuggestions?latitude=${latitude}&longitude=${longitude}&place=${place}`;
   return axios
     .get(api)
     .then((res) => {
