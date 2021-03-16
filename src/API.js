@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export function getWeather(latitude, longitude) {
   // const exclude = "[minutely,flags]";
-  const api = `https://weather.shnk.tech/.netlify/functions/getWeather&latitude=${latitude}&longitude=${longitude}`;
+  const api = `.netlify/functions/getWeather?latitude=${latitude}&longitude=${longitude}`;
   return axios
     .get(api)
     .then((res) => {

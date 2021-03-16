@@ -1,9 +1,8 @@
 const axios = require('axios');
-const querystring = require('querystring');
 
 exports.handler = async (event) => {
-  console.log(event, 'event');
-  const { latitude, longitude } = event.querystring;
+  // console.log(process.env.REACT_APP_DARKSKY_KEY, 'key');
+  const { latitude, longitude } = event.queryStringParameters;
   const API_ENDPOINT = `https://api.darksky.net/forecast/${process.env.REACT_APP_DARKSKY_KEY}/${latitude},${longitude}?units=ca&exclude=[minutely,flags]`;
 
   try {
