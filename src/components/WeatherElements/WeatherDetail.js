@@ -1,25 +1,25 @@
-import React from "react";
+import React from 'react';
 // import PropTypes from "prop-types";
-import ReactAnimatedWeather from "react-animated-weather";
-import Stats from "components/Stats/Stats.jsx";
-import { Card, CardBody, CardFooter, CardTitle, Row, Col } from "reactstrap";
+import ReactAnimatedWeather from 'react-animated-weather';
+import Stats from 'components/Stats/Stats.jsx';
+import { Card, CardBody, CardFooter, CardTitle, Row, Col } from 'reactstrap';
 
 function WeatherDetail({ currently, place_name }) {
   const defaults = {
-    color: "#4B186A",
+    color: '#4B186A',
     size: 50,
-    animate: true
+    animate: true,
   };
   const { temperature, icon, summary } = currently;
 
   return (
-    <Card className="card-stats ">
+    <Card className="card-stats">
       <CardBody>
         <Row className="align-items-center justify-items-center">
           <Col xs={12} md={6} lg={4}>
             <div className="text-center">
               <ReactAnimatedWeather
-                icon={icon.replace(/-/g, "_").toUpperCase()}
+                icon={icon.replace(/-/g, '_').toUpperCase()}
                 color={defaults.color}
                 size={defaults.size}
                 animate={defaults.animate}
@@ -44,9 +44,9 @@ function WeatherDetail({ currently, place_name }) {
         <Stats>
           {[
             {
-              i: "fas fa-location-arrow",
-              t: place_name
-            }
+              i: 'fas fa-location-arrow',
+              t: place_name,
+            },
           ]}
         </Stats>
       </CardFooter>
